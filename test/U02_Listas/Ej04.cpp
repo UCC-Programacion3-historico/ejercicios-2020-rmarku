@@ -1,17 +1,17 @@
 #include "../../U02_Listas/Ej-04/union.h"
-#include "../../U02_Listas/Lista/Lista.h"
+#include "../../U02_Listas/Lista/List.h"
 #include "gtest/gtest.h"
 
 TEST(U02_Ej04_test, unirDosListas) {
-  Lista<int> l1, l2;
+  List<int> l1, l2;
   int i;
   for (i = 0; i < 10; i++)
-    l1.insertarUltimo(i);
+    l1.push_back(i);
 
   for (; i < 20; i++)
-    l2.insertarUltimo(i);
+    l2.push_back(i);
 
-  Lista<int> *lf = unir(l1, l2);
+  List<int> *lf = unir(l1, l2);
 
-  EXPECT_EQ(lf->getDato(13), 13);
+  EXPECT_EQ(lf->get(13), 13);
 }

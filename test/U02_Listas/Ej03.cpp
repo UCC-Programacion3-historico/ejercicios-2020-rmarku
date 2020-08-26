@@ -1,4 +1,4 @@
-#include "../../U02_Listas/Lista/Lista.h"
+#include "../../U02_Listas/Lista/List.h"
 #include "gtest/gtest.h"
 
 // Con 0

@@ -3,8 +3,7 @@ project(test)
 # install googletests
 FetchContent_Declare(
   googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.10.0
+  URL https://github.com/google/googletest/archive/release-1.10.0.zip
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
@@ -33,7 +32,7 @@ add_executable(run_test
         U02_Listas/Ej04.cpp
         U02_Listas/Ej05.cpp
         U02_Listas/Ej06.cpp
-        U02_Listas/Lista.cpp
+        U02_Listas/List.cpp
 
         U03_Pilas/Ej01.cpp
         U03_Pilas/Ej02.cpp

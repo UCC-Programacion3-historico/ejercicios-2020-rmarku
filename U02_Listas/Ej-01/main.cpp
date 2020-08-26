@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../Lista/Lista.h"
+#include "../Lista/List.h"
 #include "fnInvierte.h"
 
 int main() {
