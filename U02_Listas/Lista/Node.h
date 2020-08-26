@@ -5,6 +5,7 @@ template <class T> class Node {
 private:
   T data;
   Node<T> *next;
+
 public:
   Node(T data, Node<T> *next) : data(data), next(next) {}
   Node() { next = nullptr; }

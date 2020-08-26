@@ -3,13 +3,6 @@
 
 #include "Node.h"
 
-/*
-C    create
-R    read
-U    update
-D    delete
-*/
-
 /**
  * Clase que implementa una Lista Enlasada generica, ya que puede
  * almacenar cualquier tipo de dato T
@@ -21,6 +14,7 @@ private:
   unsigned int size;
   Node<T> *begin;
   Node<T> *getNode(unsigned int pos);
+  Node<T> *actual;
 
 public:
   List();
@@ -35,15 +29,36 @@ public:
 
   void push_back(T dato);
 
-  void remove(int pos);
+  void remove(unsigned int pos);
 
-  T get(int pos);
+  T get(unsigned int pos);
 
-  void replace(int pos, T dato);
+  void replace(unsigned int pos, T dato);
 
   bool isEmpty();
 
   unsigned int getSize();
+
+  unsigned int findIdx(T toFind);
+
+  T find(T toFind);
+
+  T operator[](int i) { return get(i); }
+
+  void start() { actual = begin; }
+  bool isEnd() { return actual == nullptr; }
+  void next() { actual = actual->getNext(); }
+
+  List &operator++() {
+    next();
+    return *this;
+  }
+
+  T get() {
+    if (actual == nullptr)
+      throw 404;
+    return actual->getData();
+  }
 
   void clear();
 };
@@ -111,9 +126,7 @@ template <class T> void List<T>::insert(unsigned int pos, T data) {
  * @tparam T
  * @param dato dato a insertar
  */
-template <class T> void List<T>::push_front(T dato) {
-  insert(0, dato);
-}
+template <class T> void List<T>::push_front(T dato) { insert(0, dato); }
 
 /**
  * Inserta un nodo con el dato en la ultima posicion
@@ -127,7 +140,7 @@ template <class T> void List<T>::push_back(T dato) { insert(size, dato); }
  * @tparam T
  * @param pos posicion del nodo a eliminar
  */
-template <class T> void List<T>::remove(int pos) {
+template <class T> void List<T>::remove(unsigned int pos) {
   if (pos == 0) {
     Node<T> *toDelete = begin;
     begin = begin->getNext();
@@ -152,7 +165,7 @@ template <class T> void List<T>::remove(int pos) {
  * @param pos posicion del dato
  * @return dato almacenado en el nodo
  */
-template <class T> T List<T>::get(int pos) {
+template <class T> T List<T>::get(unsigned int pos) {
   Node<T> *aux = getNode(pos);
   return aux->getData();
 }
@@ -181,12 +194,53 @@ template <class T> Node<T> *List<T>::getNode(unsigned int pos) {
  * @param pos posicion donde se desea reemplazar
  * @param dato nuevo dato a almacenar
  */
-template <class T> void List<T>::replace(int pos, T dato) {}
+template <class T> void List<T>::replace(unsigned int pos, T dato) {}
 
 /**
  * Función que vacia la lista enlazada
  * @tparam T
  */
 template <class T> void List<T>::clear() {}
+
+/**
+ *
+ * @tparam T
+ * @param toFind
+ * @return
+ */
+template <class T> unsigned int List<T>::findIdx(T toFind) {
+  Node<T> *aux = begin;
+  unsigned int p = 0;
+
+  if (isEmpty())
+    throw 404;
+
+  while (aux->getData() != toFind && aux != nullptr) {
+    aux = aux->getNext();
+    p++;
+  }
+
+  if (aux == nullptr)
+    throw 404;
+
+  return p;
+}
+template <class T> T List<T>::find(T toFind) {
+  Node<T> *aux = begin;
+  unsigned int p = 0;
+
+  if (isEmpty())
+    throw 404;
+
+  while (aux->getData() != toFind && aux != nullptr) {
+    aux = aux->getNext();
+    p++;
+  }
+
+  if (aux == nullptr)
+    throw 404;
+
+  return aux->getData();
+}
 
 #endif // U02_LISTAS_LISTA_LISTA_H_
