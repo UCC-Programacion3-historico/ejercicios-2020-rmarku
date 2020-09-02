@@ -39,7 +39,7 @@ add_executable(run_test
         U03_Pilas/Ej03.cpp
         U03_Pilas/Ej04.cpp
         U03_Pilas/Ej05.cpp
-        U03_Pilas/Pila.cpp
+        U03_Pilas/Stack.cpp
 
         U04_Colas/Ej01.cpp
         U04_Colas/Ej02.cpp

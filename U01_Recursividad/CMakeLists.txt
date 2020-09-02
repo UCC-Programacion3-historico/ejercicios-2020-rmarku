@@ -18,4 +18,3 @@ add_executable(Laberinto Extra-Laberinto/main.cpp Extra-Laberinto/LaberintoSolve
 
 target_link_libraries(Laberinto ${CMAKE_THREAD_LIBS_INIT} sfml-system sfml-window sfml-graphics)
 file(COPY Extra-Laberinto/tileLab.png DESTINATION ${CMAKE_BINARY_DIR}/U01_Recursividad/)
-

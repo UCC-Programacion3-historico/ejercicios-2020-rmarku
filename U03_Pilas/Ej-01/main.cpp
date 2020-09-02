@@ -1,8 +1,20 @@
+#include "../Pila/Stack.h"
 #include <iostream>
-
-#include "../Pila/Pila.h"
+using namespace std;
 
 int main() {
-  std::cout << "Ejercicio 03/01\n" << std::endl;
+  Stack<char> miPila;
+  string palabra;
+
+  cout << "Ingrese una palabra ⌨️\n" << endl;
+  cin >> palabra;
+
+  for (int i = 0; i < palabra.length(); i++) {
+    miPila.push(palabra[i]);
+  }
+  while (!miPila.isEmpty()) {
+    cout << miPila.pop();
+  }
+
   return 0;
 }

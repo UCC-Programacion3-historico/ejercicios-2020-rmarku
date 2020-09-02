@@ -1,5 +1,5 @@
-#ifndef U02_LISTAS_LISTA_NODE_H_
-#define U02_LISTAS_LISTA_NODE_H_
+#ifndef U03_PILAS_PILA_NODE_H_
+#define U03_PILAS_PILA_NODE_H_
 
 template <class T> class Node {
 private:
@@ -16,4 +16,4 @@ public:
   void setNext(Node<T> *next) { Node::next = next; }
 };
 
-#endif // U02_LISTAS_LISTA_NODE_H_
+#endif // U03_PILAS_PILA_NODE_H_

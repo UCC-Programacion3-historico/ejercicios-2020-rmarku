@@ -11,6 +11,6 @@ de la que se pueden borrar elementos en un extremo
 Constructor()
 Destructor()
 
-esVacia()
+isEmpty()
 encolar( dato )
 desencolar(posicion, dato)

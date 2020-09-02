@@ -1,4 +1,4 @@
-add_executable(U03-E01 Ej-01/main.cpp Pila/Pila.h)
+add_executable(U03-E01 Ej-01/main.cpp Pila/Stack.h)
 
 add_executable(U03-E02 Ej-02/main.cpp)
 

@@ -1,26 +1,26 @@
-#include "../../U03_Pilas/Pila/Pila.h"
+#include "../../U03_Pilas/Pila/Stack.h"
 
 #include "gtest/gtest.h"
 
-Pila<int> *miPila;
+Stack<int> *miPila;
 
 TEST(U03_Pilas, nuevaPilaVacia) {
-  miPila = new Pila<int>();
-  EXPECT_EQ(miPila->esVacia(), true);
+  miPila = new Stack<int>();
+  EXPECT_EQ(miPila->isEmpty(), true);
 }
 
 TEST(U03_Pilas, agregoTres_noVacia) {
   miPila->push(3);
   miPila->push(2);
   miPila->push(1);
-  EXPECT_EQ(miPila->esVacia(), false);
+  EXPECT_EQ(miPila->isEmpty(), false);
 }
 
 TEST(U03_Pilas, popEnSentidoInverso) {
   EXPECT_EQ(miPila->pop(), 1);
   EXPECT_EQ(miPila->pop(), 2);
   EXPECT_EQ(miPila->pop(), 3);
-  EXPECT_EQ(miPila->esVacia(), true);
+  EXPECT_EQ(miPila->isEmpty(), true);
 }
 
 TEST(U03_Pilas, otroPopException) { EXPECT_ANY_THROW(miPila->pop()); }

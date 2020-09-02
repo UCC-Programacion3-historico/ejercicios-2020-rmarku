@@ -24,4 +24,3 @@ if (NOT SFML_FOUND)
         add_subdirectory(${sfml_SOURCE_DIR} ${sfml_BINARY_DIR})
     endif()
 endif()
-

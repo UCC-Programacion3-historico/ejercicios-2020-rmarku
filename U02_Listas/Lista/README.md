@@ -14,7 +14,7 @@ apunta al siguiente nodo de la lista.
 Constructor()
 Constructor(Lista) // Por copia
 
-esVacia()
+isEmpty()
 getTamanio()
 insertar(posicion, dato)
 insertarPrimero(dato)

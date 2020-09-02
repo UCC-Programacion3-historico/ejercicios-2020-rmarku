@@ -1,5 +1,5 @@
-#ifndef U02_LISTAS_LISTA_LISTA_H_
-#define U02_LISTAS_LISTA_LISTA_H_
+#ifndef U02_LISTAS_LISTA_LIST_H_
+#define U02_LISTAS_LISTA_LIST_H_
 
 #include "Node.h"
 
@@ -243,4 +243,4 @@ template <class T> T List<T>::find(T toFind) {
   return aux->getData();
 }
 
-#endif // U02_LISTAS_LISTA_LISTA_H_
+#endif // U02_LISTAS_LISTA_LIST_H_

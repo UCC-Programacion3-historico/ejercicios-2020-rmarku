@@ -12,6 +12,6 @@ llamado TOPE.
 Constructor()
 Destructor()
 
-esVacia()
+isEmpty()
 push( dato )
 pop(posicion, dato)
