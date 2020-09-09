@@ -12,5 +12,5 @@ Constructor()
 Destructor()
 
 isEmpty()
-encolar( dato )
+enqueue( dato )
 desencolar(posicion, dato)

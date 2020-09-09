@@ -31,7 +31,7 @@ public:
  */
 template <class T> Stack<T>::Stack() { top = nullptr; }
 /**
- * Constructor por copia de la clase Lista
+ * Constructor por copia de la clase Stack
  * @tparam T
  * @param li
  */

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../Cola/Cola.h"
+#include "../Cola/Queue.h"
 
 int main() {
   std::cout << "Ejercicio 04/05\n" << std::endl;

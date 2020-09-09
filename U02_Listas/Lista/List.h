@@ -84,7 +84,11 @@ template <class T> List<T>::List(const List<T> &li) {}
  * nodos utilizados en la lista
  * @tparam T
  */
-template <class T> List<T>::~List() {}
+template <class T> List<T>::~List() {
+  //  while (!isEmpty()) {
+  //    remove(0);
+  //  }
+}
 
 /**
  * Metodo para saber si la lista esta vacia
