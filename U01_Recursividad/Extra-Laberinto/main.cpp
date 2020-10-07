@@ -12,8 +12,8 @@ void dibujarSolucion(RenderWindow &w, int *s, CircleShape *c);
 
 // Constantes para modificar visualización
 void tilesPosition(MazeGenerator &m, Sprite *tiles);
-#define ANCHO 50
-#define ALTO 30
+#define ANCHO 15
+#define ALTO 15
 #define RADIO 8
 #define DELAY 20
 

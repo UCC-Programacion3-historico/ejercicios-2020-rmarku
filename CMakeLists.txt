@@ -17,6 +17,7 @@ add_subdirectory(U06_Arbol)
 add_subdirectory(U07_Grafos)
 add_subdirectory(U08_Ordenamiento)
 add_subdirectory(U09_Busqueda)
+add_subdirectory(Repaso)
 
 add_subdirectory(test)
 enable_testing()

@@ -2,6 +2,7 @@
 #define U02_LISTAS_LISTA_LIST_H_
 
 #include "Node.h"
+#include <iostream>
 
 /**
  * Clase que implementa una Lista Enlasada generica, ya que puede
@@ -59,6 +60,8 @@ public:
       throw 404;
     return actual->getData();
   }
+
+  void print();
 
   void clear();
 };
@@ -245,6 +248,15 @@ template <class T> T List<T>::find(T toFind) {
     throw 404;
 
   return aux->getData();
+}
+
+template <class T> void List<T>::print() {
+  Node<T> *aux = begin;
+  while (aux != nullptr) {
+    std::cout << aux->getData() << " -> ";
+    aux = aux->getNext();
+  }
+  std::cout << std::endl;
 }
 
 #endif // U02_LISTAS_LISTA_LIST_H_

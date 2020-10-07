@@ -1,7 +1,7 @@
 #ifndef U04_COLAS_COLA_QUEUE_H_
 #define U04_COLAS_COLA_QUEUE_H_
 
-#include "Node.h"
+#include "../../U02_Listas/Lista/Node.h"
 /**
  * Clase que implementa una Cola generica, ya que puede
  * almacenar cualquier tipo de dato T

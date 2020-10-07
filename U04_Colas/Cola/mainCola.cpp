@@ -19,5 +19,12 @@ int main() {
   } catch (int e) {
     cout << "no hay mas valores para desencolar" << e << endl;
   }
+
+  // PriorityQueue
+  Queue<int> colas[2];
+
+  // enqueue( dato, prioridad)
+  // colas[prioridad].enqueue(dato)
+
   return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef U03_PILAS_PILA_STACK_H_
 #define U03_PILAS_PILA_STACK_H_
 
-#include "Node.h"
+#include "../../U02_Listas/Lista/Node.h"
 /**
  * Clase que implementa una Pila generica, ya que puede
  * almacenar cualquier tipo de dato T
