@@ -80,7 +80,30 @@ template <class T> List<T>::List() {
  * @tparam T
  * @param li
  */
-template <class T> List<T>::List(const List<T> &li) {}
+template <class T> List<T>::List(const List<T> &org) {
+  Node<T> *aux, *orgAux = org.begin;
+
+  // La original está vacia?
+  if (org.begin == nullptr) {
+    begin == nullptr;
+    return;
+  }
+
+  // Copio el nodo head de la original
+  begin = new Node<T>;
+  begin->setData(org.begin->getData());
+  aux = begin;
+
+  // Copio cada uno de los nodos
+  while (orgAux->getNext() != nullptr) {
+    orgAux = orgAux->getNext();
+    aux->setNext(new Node<T>);
+    aux = aux->getNext();
+    aux->setData(orgAux->getData());
+    size++; // Incremento el size de la lista actual.
+  }
+  aux->setNext(nullptr); // Finalizo la lista con null.
+}
 
 /**
  * Destructor de la clase Lista, se encarga de liberar la memoria de todos los

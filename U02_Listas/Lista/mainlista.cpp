@@ -20,6 +20,13 @@ public:
        const string &modelo)
       : patente(patente), color(color), marca(marca), modelo(modelo) {}
 
+  Auto() {}
+  Auto(const Auto &org) {
+    patente = org.patente;
+    color = org.color;
+    marca = org.marca;
+    modelo = org.modelo;
+  }
   friend std::ostream &operator<<(std::ostream &os, const Auto &anAuto) {
     os << "patente: " << anAuto.patente << " color: " << anAuto.color
        << " marca: " << anAuto.marca << " modelo: " << anAuto.modelo << endl;
@@ -49,6 +56,8 @@ int main() {
   ListaDeAutos.push_front({"ZXE837", "rojo", "BMW", "350"});
   ListaDeAutos.push_front({"EVE384", "azul", "Ferrari", "f500"});
   ListaDeAutos.push_front({"FUT200", "gris", "Delorean", "Delorean"});
+
+  List<Auto> ListaDeAutos2 = ListaDeAutos;
 
   int pp = 90;
   pp = pp++;
