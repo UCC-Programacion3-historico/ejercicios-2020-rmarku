@@ -121,8 +121,7 @@ template <class T> TreeNode<T> *BinaryTree<T>::remove(T dato, TreeNode<T> *r) {
 
   if (dato > r->getData()) {
     r->setRight(remove(dato, r->getRight()));
-  }
-  if (dato < r->getData()) {
+  } else if (dato < r->getData()) {
     r->setLeft(remove(dato, r->getLeft()));
   } else {
     // Remover el nodo
@@ -139,7 +138,7 @@ template <class T> TreeNode<T> *BinaryTree<T>::remove(T dato, TreeNode<T> *r) {
       return aux;
     } else {
       T tmp = findMax(r->getLeft());
-      remove(tmp, r->getLeft());
+      r->setLeft(remove(tmp, r->getLeft()));
       r->setData(tmp);
     }
   }

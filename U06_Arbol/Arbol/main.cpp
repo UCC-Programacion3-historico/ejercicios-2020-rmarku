@@ -5,8 +5,10 @@
 
 using namespace std;
 
+unsigned int seed;
+
 int main() {
-  srand(time(nullptr));
+  seed = time(nullptr);
 
   BinaryTree<int> miArbol;
 
@@ -14,24 +16,31 @@ int main() {
   miArbol.put(3);
   miArbol.put(1);
   miArbol.put(2);
-  miArbol.put(4);
-
   miArbol.put(7);
-  miArbol.put(6);
   miArbol.put(9);
   miArbol.put(8);
-
-  //    for (int i = 0; i < 100; ++i) {
-  //    try {
-  //      int n = rand() % 100;
-  //      miArbol.remove(n);
-  //      cout << "Eliminé el " << n << endl;
-  //    } catch (...) {
-  //    }
-  //  }
+  miArbol.put(6);
 
   miArbol.print();
-  miArbol.remove(2);
+  miArbol.remove(7);
+  miArbol.print();
+
+  return 0;
+  for (int i = 0; i < 100; ++i) {
+    try {
+      miArbol.put(rand_r(&seed) % 100);
+    } catch (...) {
+    }
+  }
+  for (int i = 0; i < 100; ++i) {
+    try {
+      int n = rand_r(&seed) % 100;
+      miArbol.remove(n);
+      cout << "Eliminé el " << n << endl;
+    } catch (...) {
+    }
+  }
+
   miArbol.print();
 
   return 0;
