@@ -1,16 +1,21 @@
 #ifndef U05_HASH_HASHMAP_HASHMAP_H_
 #define U05_HASH_HASHMAP_HASHMAP_H_
+#include "HashEntry.h"
 
 template <class K, class T> class HashMap {
 private:
-  unsigned int hashFunc(K clave);
+  HashEntry<K, T> **table;
+
+  unsigned int size;
+
+  static unsigned int hashFunc(K clave);
 
   unsigned int (*hashFuncP)(K clave);
 
 public:
-  explicit HashMap(unsigned int k);
+  explicit HashMap(unsigned int size);
 
-  HashMap(unsigned int k, unsigned int (*hashFuncP)(K clave));
+  HashMap(unsigned int size, unsigned int (*hashFuncP)(K clave));
 
   T get(K clave);
 
@@ -20,29 +25,77 @@ public:
 
   ~HashMap();
 
-  bool esVacio();
+  bool isEmpty();
 };
 
-template <class K, class T> HashMap<K, T>::HashMap(unsigned int k) {}
-
-template <class K, class T> HashMap<K, T>::~HashMap() {}
-
-template <class K, class T> T HashMap<K, T>::get(K clave) {
-  T temp;
-  return temp;
+template <class K, class T> HashMap<K, T>::HashMap(unsigned int size) {
+  this->size = size;
+  table = new HashEntry<K, T> *[size];
+  for (int i = 0; i < size; ++i) {
+    table[i] = nullptr;
+  }
+  hashFuncP = hashFunc;
 }
 
-template <class K, class T> void HashMap<K, T>::put(K clave, T valor) {}
+template <class K, class T> HashMap<K, T>::~HashMap() {
+  for (int i = 0; i < size; ++i) {
+    if (table[i] != nullptr)
+      delete table[i];
+  }
+  delete table;
+}
 
-template <class K, class T> void HashMap<K, T>::remove(K clave) {}
+template <class K, class T> void HashMap<K, T>::put(K clave, T valor) {
+  unsigned int pos = hashFuncP(clave) % size;
+  if (table[pos] != nullptr)
+    throw 503;
 
-template <class K, class T> bool HashMap<K, T>::esVacio() { return false; }
+  table[pos] = new HashEntry<K, T>(clave, valor);
+}
+
+template <class K, class T> T HashMap<K, T>::get(K clave) {
+  unsigned int pos = hashFuncP(clave) % size;
+  if (table[pos] == nullptr)
+    throw 404;
+
+  if (table[pos]->getKey() != clave)
+    throw 404;
+
+  return table[pos]->getDato();
+}
+
+template <class K, class T> void HashMap<K, T>::remove(K clave) {
+  unsigned int pos = hashFuncP(clave) % size;
+  if (table[pos] == nullptr)
+    throw 404;
+
+  if (table[pos]->getKey() != clave)
+    throw 404;
+
+  delete table[pos];
+  table[pos] = nullptr;
+}
+
+template <class K, class T> bool HashMap<K, T>::isEmpty() {
+  for (int i = 0; i < size; ++i) {
+    if (table[i] != nullptr)
+      return false;
+  }
+  return true;
+}
 
 template <class K, class T> unsigned int HashMap<K, T>::hashFunc(K clave) {
-  return 99999;
+  return clave;
 }
 
 template <class K, class T>
-HashMap<K, T>::HashMap(unsigned int k, unsigned int (*fp)(K)) {}
+HashMap<K, T>::HashMap(unsigned int size, unsigned int (*fp)(K)) {
+  this->size = size;
+  table = new HashEntry<K, T> *[size];
+  for (int i = 0; i < size; ++i) {
+    table[i] = nullptr;
+  }
+  hashFuncP = fp;
+}
 
 #endif // U05_HASH_HASHMAP_HASHMAP_H_
