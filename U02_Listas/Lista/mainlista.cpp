@@ -27,11 +27,6 @@ public:
     marca = org.marca;
     modelo = org.modelo;
   }
-  friend std::ostream &operator<<(std::ostream &os, const Auto &anAuto) {
-    os << "patente: " << anAuto.patente << " color: " << anAuto.color
-       << " marca: " << anAuto.marca << " modelo: " << anAuto.modelo << endl;
-    return os;
-  }
   bool operator==(const Auto &rhs) const { return patente == rhs.patente; }
   bool operator!=(const Auto &rhs) const { return !(rhs == *this); }
 };

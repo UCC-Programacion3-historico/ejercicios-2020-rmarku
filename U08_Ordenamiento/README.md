@@ -13,7 +13,7 @@ el método Burbuja.
 
 ## Ejercicio N°2
 
-Implemente la función **interSort** que recibe un vector  y lo ordena
+Implemente la función **mergeSort** que recibe un vector  y lo ordena
 mediante el algoritmo de ordenamiento por intercalación.
 
 
