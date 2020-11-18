@@ -1,11 +1,11 @@
 #ifndef U05_HASH_HASHMAP_HASHMAPTREE_H_
 #define U05_HASH_HASHMAP_HASHMAPTREE_H_
-#include "../../U06_Arbol/Arbol/BinaryTree.h"
+#include "../../U06_Arbol/Arbol/AVLTree.h"
 #include "HashEntry.h"
 
 template <class K, class T> class HashMapTree {
 private:
-  BinaryTree<HashEntry<K, T>> **table;
+  AVLTree<HashEntry<K, T>> **table;
 
   unsigned int size;
 
@@ -31,7 +31,7 @@ public:
 
 template <class K, class T> HashMapTree<K, T>::HashMapTree(unsigned int size) {
   this->size = size;
-  table = new BinaryTree<HashEntry<K, T>> *[size];
+  table = new AVLTree<HashEntry<K, T>> *[size];
   for (int i = 0; i < size; ++i) {
     table[i] = nullptr;
   }
@@ -49,7 +49,7 @@ template <class K, class T> HashMapTree<K, T>::~HashMapTree() {
 template <class K, class T> void HashMapTree<K, T>::put(K clave, T valor) {
   unsigned int pos = hashFuncP(clave) % size;
   if (table[pos] == nullptr) {
-    table[pos] = new BinaryTree<HashEntry<K, T>>();
+    table[pos] = new AVLTree<HashEntry<K, T>>();
   }
 
   table[pos]->put({clave, valor});
@@ -91,7 +91,7 @@ template <class K, class T> unsigned int HashMapTree<K, T>::hashFunc(K clave) {
 template <class K, class T>
 HashMapTree<K, T>::HashMapTree(unsigned int size, unsigned int (*fp)(K)) {
   this->size = size;
-  table = new BinaryTree<HashEntry<K, T>> *[size];
+  table = new AVLTree<HashEntry<K, T>> *[size];
   for (int i = 0; i < size; ++i) {
     table[i] = nullptr;
   }

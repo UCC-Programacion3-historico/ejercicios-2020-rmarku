@@ -1,7 +1,9 @@
-#include "BinaryTree.h"
+//#include "BinaryTree.h"
+#include "AVLTree.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+//#include "../../ArbolBinarioAVL.h"
 
 using namespace std;
 
@@ -10,17 +12,11 @@ unsigned int seed;
 int main() {
   seed = time(nullptr);
 
-  BinaryTree<int> miArbol;
+  AVLTree<int> miArbol;
 
-  miArbol.put(5);
-  miArbol.put(3);
-  miArbol.put(1);
-  miArbol.put(2);
-  miArbol.put(7);
-  miArbol.put(9);
-  miArbol.put(8);
-  miArbol.put(6);
-
+  for (int i = 10; i > 0; --i) {
+    miArbol.put(i);
+  }
   miArbol.print();
   miArbol.remove(7);
   miArbol.print();
